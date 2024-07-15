@@ -23,21 +23,6 @@ app.get('/edit', (req, res) => {
     res.sendFile(path.join(PUBLIC, 'edit.html'));
 });
 
-// obtener todas las notas
-app.get('/api/notes', (req, res) => {
-    res.json(notes);
-});
-
-// obtener nota por ID
-app.get('/api/notes/:id', (req, res) => {
-    const note = notes.find(n => n.id === parseInt(req.params.id));
-    if (note) {
-        res.json(note);
-    } else {
-        res.status(404).send('Nota no encontrada');
-    }
-});
-
 // crea nueva nota
 app.post('/api/notes', (req, res) => {
     const { title, content, tags } = req.body;
@@ -74,6 +59,11 @@ app.put('/api/notes/:id', (req, res) => {
     }
 });
 
+// obtener todas las notas
+app.get('/api/notes', (req, res) => {
+    res.json(notes);
+});
+
 // elimina nota
 app.delete('/api/notes/:id', (req, res) => {
     notes = notes.filter(n => n.id !== parseInt(req.params.id));
@@ -81,5 +71,5 @@ app.delete('/api/notes/:id', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`🥑Server is running on port ${PORT}`);
 });

@@ -4,8 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Notas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="js/script.js"></script>
 </head>
 <body>
-    
+    <div class="container mt-5">
+        <h1 id="form-title">crear nota</h1>
+        <form id="note-form">
+            <div class="form-group">
+                <label for="title">Titulo</label>
+                <input type="text" id="title" name="title" class="form-control" maxlength="200" required>
+            </div>
+            <div class="form-group">
+                <label for="content">Contenid</label>
+                <textarea id="content" name="content" class="form-control" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="tags">Etiquetas</label>
+                <input type="text" id="tags" name="tags" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary" id="save-button">Guardar</button>
+            <button type="button" class="btn btn-secondary" onclick="window.location.href='/'">Cancelar</button>
+            <button type="button" class="btn btn-danger" id="delete-button" style="display: none;">Eliminar</button>
+        </form>
+    </div>
+
 </body>
 </html>
